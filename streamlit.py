@@ -1,3 +1,4 @@
+from threading import local
 import streamlit as st;
 import streamlit.components.v1 as components
 from requests_toolbelt.multipart.encoder import MultipartEncoder;
@@ -5,9 +6,9 @@ import requests
 import os;
 
 # interact with FastAPI endpoint
-#backend = 'http://localhost:8000/'
+backend = 'http://localhost:8000/'
+#backend = os.environ["FAST_API_URL"]
 
-backend = os.environ["FAST_API_URL"]
 
 def process(question: str, server_url: str):
 
