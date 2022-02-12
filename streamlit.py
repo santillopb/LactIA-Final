@@ -7,12 +7,7 @@ import os;
 # interact with FastAPI endpoint
 #backend = 'http://localhost:8000/'
 
-
 backend = os.environ["FAST_API_URL"]
-"""if os.environ["FAST_API_URL"] is None:
-    backend = 'http://localhost:8000/'
-else:
-    backend = os.environ["FAST_API_URL"]"""
 
 def process(question: str, server_url: str):
 
