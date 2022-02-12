@@ -1,11 +1,18 @@
 import streamlit as st;
 import streamlit.components.v1 as components
 from requests_toolbelt.multipart.encoder import MultipartEncoder;
-import requests;
+import requests
+import os;
 
 # interact with FastAPI endpoint
-backend = 'http://localhost:8000/'
+#backend = 'http://localhost:8000/'
 
+
+backend = os.environ["FAST_API_URL"]
+"""if os.environ["FAST_API_URL"] is None:
+    backend = 'http://localhost:8000/'
+else:
+    backend = os.environ["FAST_API_URL"]"""
 
 def process(question: str, server_url: str):
 
@@ -39,12 +46,9 @@ if st.button('Ver respuesta'):
         #st.write(f'Respuesta:    {res.decode("utf-8") }')
         #components.html("<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'><style>html{ background-color: #000000 }</style>"+"<div class='container-fluid bg-success bg-opacity-50'>"+f'Respuesta:    {res.decode("utf-8") }'+"</div>", height=600, scrolling=True)
         components.html("<style>#main-content { background-color: #B9F1C0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font }</style>"+"<div id='main-content'>"+f'Respuesta:    {res.decode("utf-8") }'+"</div>", height=600, scrolling=True)
-
+        
         #href='./style.css'
     else:
         # handle case with no image
         st.write("Hazme una pregunta!")
 
-    
-
-    

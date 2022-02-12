@@ -1,8 +1,6 @@
-from copy import copy
 from fastapi import FastAPI, Query
 from script import devRespuesta
 app = FastAPI()
-
 
 @app.get("/")
 def read_root():
