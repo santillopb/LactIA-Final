@@ -6,8 +6,8 @@ import requests
 import os;
 
 # interact with FastAPI endpoint
-backend = 'http://localhost:8000/'
-#backend = os.environ["FAST_API_URL"]
+#backend = 'http://localhost:8000/'
+backend = os.environ["FAST_API_URL"]
 
 
 def process(question: str, server_url: str):
